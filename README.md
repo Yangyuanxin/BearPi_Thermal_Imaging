@@ -1,0 +1,2 @@
+# BearPi_Thermal_Imaging
+这是一个关于小熊派热成像的开源项目
