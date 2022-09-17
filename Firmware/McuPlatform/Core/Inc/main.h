@@ -35,6 +35,7 @@ extern "C" {
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
+#include "tos_k.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -12,16 +12,8 @@ extern "C" {
 #include "usart.h"
 
 #include "Lcd.h"
-#include "MQ_2.h"
-#include "Bh750.h"
+#include "AMG883x.h"
 #include "cmsis_os.h"
-#include "sensor_protocol.h"
-
-enum SensorType_t
-{
-    BEARPI_BH750_SENSOR,
-    BEARPI_MQ_2_SENSOR
-};
 
 void RunApp(void);
 

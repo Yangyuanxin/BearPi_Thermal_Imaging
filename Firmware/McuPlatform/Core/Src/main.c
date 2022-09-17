@@ -28,7 +28,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "App.h"
-#include "AMG883x.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,10 +96,7 @@ int main(void)
     MX_SPI2_Init();
     MX_I2C1_Init();
     /* USER CODE BEGIN 2 */
-    //RunApp();
-    lcd_init();
-    lcd_clear(BLACK);
-    AMG883xInit();
+    RunApp();
     /* USER CODE END 2 */
 
     /* Infinite loop */
@@ -110,8 +106,6 @@ int main(void)
         /* USER CODE END WHILE */
 
         /* USER CODE BEGIN 3 */
-        //printf("Temp = %.2f¡æ\r\n", ReadOnePixel());
-        AMG883xMatrixDisplay();
     }
 
     /* USER CODE END 3 */

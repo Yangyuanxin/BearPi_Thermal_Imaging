@@ -2,8 +2,6 @@
 
 S32 Fd = -1;
 Float HDTemp[LINE_NUM][LINE_NUM];
-Float RawMatrix[AMG88xx_PIXEL_ARRAY_SIZE];
-U16 displayPixelWidth, displayPixelHeight;
 extern I2C_HandleTypeDef hi2c1;
 
 S32 AMG883xInit(Void)
@@ -67,9 +65,6 @@ S32 AMG883xInit(Void)
         printf("I2cWrite failed!\n");
         goto ErrorHandler;
     }
-
-    displayPixelWidth = LCD_WIDTH / LINE_NUM;
-    displayPixelHeight = LCD_HEIGHT / LINE_NUM;
 
     printf("I2cDevAmg8833Init success!\n");
 
@@ -167,6 +162,7 @@ Void AMG883xMatrixDisplay(Void)
     S8 Buff[25] = {0};
     Float Min = 0, Max = 0;
     static U8 DisplayOn = 0;
+		Float RawMatrix[AMG88xx_PIXEL_ARRAY_SIZE];
     
     AMG883xReadMatrix(RawMatrix, AMG88xx_PIXEL_ARRAY_SIZE);
     FindMaxTemp(&Min, &Max, RawMatrix);

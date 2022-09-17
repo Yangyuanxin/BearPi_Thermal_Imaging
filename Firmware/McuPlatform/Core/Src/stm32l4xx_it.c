@@ -167,6 +167,7 @@ void DebugMon_Handler(void)
     /* USER CODE END DebugMonitor_IRQn 1 */
 }
 
+#if 0
 /**
   * @brief This function handles Pendable request for system service.
   */
@@ -179,6 +180,7 @@ void PendSV_Handler(void)
 
     /* USER CODE END PendSV_IRQn 1 */
 }
+#endif
 
 /**
   * @brief This function handles System tick timer.
@@ -190,16 +192,12 @@ void SysTick_Handler(void)
     /* USER CODE END SysTick_IRQn 0 */
     HAL_IncTick();
     /* USER CODE BEGIN SysTick_IRQn 1 */
-    #if 0
-
     if(tos_knl_is_running())
     {
         tos_knl_irq_enter();
         tos_tick_handler();
         tos_knl_irq_leave();
     }
-
-    #endif
     /* USER CODE END SysTick_IRQn 1 */
 }
 
@@ -216,11 +214,11 @@ void SysTick_Handler(void)
 void USART1_IRQHandler(void)
 {
     /* USER CODE BEGIN USART1_IRQn 0 */
-    //tos_knl_irq_enter();
+    tos_knl_irq_enter();
     /* USER CODE END USART1_IRQn 0 */
     HAL_UART_IRQHandler(&huart1);
     /* USER CODE BEGIN USART1_IRQn 1 */
-    //tos_knl_irq_leave();
+    tos_knl_irq_leave();
     /* USER CODE END USART1_IRQn 1 */
 }
 
